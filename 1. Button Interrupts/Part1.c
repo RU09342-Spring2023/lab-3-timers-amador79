@@ -80,13 +80,13 @@ __interrupt void Port_2(void)
 {
     P2IFG &= ~BIT3;                         // Clear P1.3 IFG
 
-    if ( )       // @TODO Fill in this argument within the If statement to check if the interrupt was triggered off a rising edge.
+    if (risingEdge)
     {
         LED_Color = 0;
         // @TODO Add code to change which edge the interrupt should be looking for next
     }
 
-    else if ( ) // @TODO Fill in this argument within the If statement to check if the interrupt was triggered off a falling edge.
+    else if (fallingEdge)
     {
         LED_Color = 1;
         // @TODO Add code to change which edge the interrupt should be looking for next
