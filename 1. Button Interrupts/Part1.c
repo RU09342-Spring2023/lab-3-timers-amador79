@@ -84,14 +84,14 @@ __interrupt void Port_2(void)
 {
     P2IFG &= ~BIT3;                         // Clear P2.3 IFG
 
-    if ((P2IES & BIT3) == 0)                // rising
+    if (!(P2IES & BIT3))                // rising
     {
         LED_Color = 0;
         P2IES |= BIT3;
         // @TODO Add code to change which edge the interrupt should be looking for next
     }
 
-    else if ((P2IES & BIT3) == 1)           // falling
+    else if ((P2IES & BIT3))           // falling
     {
         LED_Color = 1;
         P2IES &= ~BIT3;
